@@ -11,50 +11,7 @@
         <link rel="stylesheet" href="css/vendor.css">
         <!-- Theme initialization -->
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-         <script type="text/javascript">
-	        function showPage(i) {
-	
-	    		$.get({
-	    			url : '/showLeave',
-	    			success : function(res) {
-	    				console.log(res);
-	    				$('#employeeList tbody').html('');
-	    				var list;
-	    				$.each(res, function(key, value) {
-	    					console.log(value.email)
-	    					list += '<tr>';
-	    					list += '<td>' + value.id + '</td>';
-	    					list += '<td>' + value.id + '</td>';
-	    					list += '<td>' + value.id + '</td>';
-	    					list += '<td>' + value.id + '</td>';
-	    					list += '<td><a  onclick="updateEntry( \''+value.id+'\' )">  Update  </a></td>';
-	    					list += '<td><a  onclick="DeleteEntry( \''+value.id+'\' )">  Delete  </a></td>';
-	    					list + '</tr>';
-	    				});
-	    	
-	
-	    				$('#employeeList').append(list);
-	    			}
-	    		})
-	    	}
-	        
-        </script>
-        
-        
-		<script type="text/javascript">
-			$(document).ready(function() {
-				console.log("sdjflksjdjflsdfdsfsdf");
-				alert("sdfsdf");
-				showPage(1);
-				
-			});
-			
-			
-			
-		</script>
-        
-        
-        
+         
         <script>
             var themeSettings = (localStorage.getItem('themeSettings')) ? JSON.parse(localStorage.getItem('themeSettings')) :
             {};
@@ -221,52 +178,87 @@
                     <div class="title-block">
                         <h1 class="title"> Leaves Summary </h1>
                         <p class="title-description"> 
-	                        <a href="/createLeave">
-	                        	<button href="" class="btn btn-success">Create</button>
-	                        </a> 
+                        	<a><button class="btn btn-success"> Save</button> </a>
+                        	<a><button class="btn btn-secondary"> Discard</button> </a>
+                        	 <a><button class="btn btn-success" style="float:right"> Approve</button> </a>
+                        	<a><button class="btn btn-secondary" style="float:right"> Refuse</button> </a>
+                        	
                         </p>
+                        
                     </div>
-                    <section class="section">
-                        <div class="row">
-                            <div class="col-md-12">
-                                <div class="card">
-                                    <div class="card-block">
-                                        <div class="card-title-block">
-                                            <h3 class="title"> Responsive simple </h3>
-                                        </div>
-                                        <section class="example">
-                                            <div class="table-responsive">
-                                                <table id="employeeList" class="table table-striped table-bordered table-hover">
-                                                    <thead>
-                                                        <tr>
-                                                            <th>Employee</th>
-                                                            <th>Request Type</th>
-                                                            <th>Description</th>
-                                                            <th>Number of Days</th>
-                                                            <th>Start Date</th>
-                                                            <th>End Date</th>
-                                                            <th>Leave Type</th>
-                                                            <th>Status</th>
-                                                        </tr>
-                                                    </thead>
-                                                    <tbody>
-                                                        <!-- <tr>
-                                                            <td>Table cell</td>
-                                                            <td>Table cell</td>
-                                                            <td>Table cell</td>
-                                                            <td>Table cell</td>
-                                                            <td>Table cell</td>
-                                                            <td>Table cell</td>
-                                                            <td>Table cell</td>
-                                                            <td>Table cell</td>
-                                                        </tr> -->
-                                                        
-                                                        
-                                                    </tbody>
-                                                </table>
-                                            </div>
-                                        </section>
+                   <section class="section">
+                   
+                        <div class="row sameheight-container">
+                        
+                            <div class="col-md-6">
+                                <div class="card card-block sameheight-item">
+                                    <div class="title-block">
+                                        <h3 class="title"> Boxed Inputs </h3>
+                                       
                                     </div>
+                                    <form>
+                                    	
+                                        <div class="form-group">
+                                            <label class="control-label">Description</label>
+                                            <input type="text" class="form-control boxed"> </div>
+                                        <div class="form-group">
+                                            <label class="control-label">Leave Type</label>
+                                             <select class="form-control boxed">
+                                                <option>Option one</option>
+                                                <option>Option two</option>
+                                                <option>Option three</option>
+                                                <option>Option four</option>
+                                            </select> 
+                                            
+                                         </div>
+                                         
+                                        <div class="form-group">
+                                            <label class="control-label">Start Date</label>
+                                            <input type="date" class="form-control boxed" placeholder="Placeholder text"> </div>
+                                        <div class="form-group">
+                                            <label class="control-label">End Date</label>
+                                            <input type="date" class="form-control boxed" placeholder="Disabled input text">
+                                        </div>
+                                       
+                                        
+                                    </form>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="card card-block sameheight-item">
+                                    <div class="title-block">
+                                        <h3 class="title"> Boxed Inputs Validation </h3>
+                                    </div>
+                                    <form role="form">
+                                         <div class="form-group">
+                                            <label class="control-label">Employee</label>
+                                             <select class="form-control boxed">
+                                                <option>Option one</option>
+                                                <option>Option two</option>
+                                                <option>Option three</option>
+                                                <option>Option four</option>
+                                            </select> 
+                                            
+                                         </div>
+                                          <div class="form-group">
+                                            <label class="control-label">Department</label>
+                                             <select class="form-control boxed">
+                                                <option>Option one</option>
+                                                <option>Option two</option>
+                                                <option>Option three</option>
+                                                <option>Option four</option>
+                                            </select> 
+                                            
+                                         </div>
+                                          <div class="form-group">
+                                            <label class="control-label">Duration</label>
+                                            <input type="text" disabled="disabled" class="form-control boxed" placeholder="Disabled input text">
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="control-label">Comment By Manager</label>
+                                            <textarea rows="3" class="form-control boxed"></textarea>
+                                        </div>
+                                    </form>
                                 </div>
                             </div>
                         </div>
