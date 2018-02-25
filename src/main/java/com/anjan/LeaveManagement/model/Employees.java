@@ -1,6 +1,6 @@
 package com.anjan.LeaveManagement.model;
 // default package
-// Generated Feb 25, 2018 9:04:49 PM by Hibernate Tools 4.3.5.Final
+// Generated Feb 25, 2018 11:54:15 PM by Hibernate Tools 4.3.5.Final
 
 import javax.persistence.Column;
 import javax.persistence.Entity;

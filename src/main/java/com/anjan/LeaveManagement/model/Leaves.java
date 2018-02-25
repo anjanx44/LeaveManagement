@@ -1,6 +1,6 @@
 package com.anjan.LeaveManagement.model;
 // default package
-// Generated Feb 25, 2018 9:04:49 PM by Hibernate Tools 4.3.5.Final
+// Generated Feb 25, 2018 11:54:15 PM by Hibernate Tools 4.3.5.Final
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -26,12 +26,13 @@ public class Leaves implements java.io.Serializable {
 	private String managerComment;
 	private String empName;
 	private String empDept;
+	private String status;
 
 	public Leaves() {
 	}
 
 	public Leaves(String leaveType, String description, String startDate, String endDate, int duration, int empId,
-			String managerComment, String empName, String empDept) {
+			String managerComment, String empName, String empDept, String status) {
 		this.leaveType = leaveType;
 		this.description = description;
 		this.startDate = startDate;
@@ -41,6 +42,7 @@ public class Leaves implements java.io.Serializable {
 		this.managerComment = managerComment;
 		this.empName = empName;
 		this.empDept = empDept;
+		this.status = status;
 	}
 
 	@Id
@@ -134,6 +136,15 @@ public class Leaves implements java.io.Serializable {
 
 	public void setEmpDept(String empDept) {
 		this.empDept = empDept;
+	}
+
+	@Column(name = "status", nullable = false, length = 30)
+	public String getStatus() {
+		return this.status;
+	}
+
+	public void setStatus(String status) {
+		this.status = status;
 	}
 
 }

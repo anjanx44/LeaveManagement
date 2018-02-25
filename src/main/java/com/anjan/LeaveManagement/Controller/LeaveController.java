@@ -83,6 +83,8 @@ public class LeaveController {
 		
 		leave.setDuration(1);
 		leave.setEmpId(1);
+		leave.setStatus("To Approve");
+	
 
 		leaveService.save(leave);
 		

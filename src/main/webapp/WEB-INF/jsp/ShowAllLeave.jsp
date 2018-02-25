@@ -35,8 +35,8 @@
 	    					list += '<td>' + value.duration + '</td>';
 	    					list += '<td>' + value.startDate + '</td>';
 	    					list += '<td>' + value.endDate + '</td>';
-	    					list += '<td>' + value.endDate + '</td>';
-	    					list += '<td>' + value.endDate + '</td>';
+	    					list += '<td>' + value.leaveType + '</td>';
+	    					list += '<td>' + value.status + '</td>';
 	    					list + '</tr>';
 	    				});
 	    	
@@ -66,7 +66,15 @@
 
 			function bb(){
 				cnt--;
-				showPage(cnt);
+
+				if(cnt<1){
+					cnt = 1;
+					showPage(cnt);
+				}
+				else{
+					showPage(cnt);
+				}
+				
 			}
 			
         </script>
@@ -252,10 +260,10 @@
                                             <h3 class="title"> Responsive simple </h3>
                                         </div>
                                         <div class="pagination" style="float:right;">
-                                                <a href="#" onclick="ff(); return false;" class="btn btn-primary btn-sm">
+                                                <a href="#" onclick="bb(); return false;" class="btn btn-primary btn-sm">
                                                     <i class="fa fa-angle-left"></i>
                                                 </a>
-                                                <a href="#" onclick="bb(); return false;" class="btn btn-primary btn-sm">
+                                                <a href="#" onclick="ff(); return false;" class="btn btn-primary btn-sm">
                                                     <i class="fa fa-angle-right"></i>
                                                 </a>
                                         </div>
