@@ -21,7 +21,7 @@ public class LeaveService {
 		repository.save(leave);
 	}
 	
-	public Iterable<Leaves> findAllEmployees() {
+	public Iterable<Leaves> findAllLeave() {
 		return repository.findAll();
 	}
 	

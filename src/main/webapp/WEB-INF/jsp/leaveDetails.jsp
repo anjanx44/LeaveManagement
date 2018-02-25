@@ -200,24 +200,19 @@
                                     	
                                         <div class="form-group">
                                             <label class="control-label">Description</label>
-                                            <input type="text" class="form-control boxed"> </div>
+                                            <input type="text" disabled="disabled" class="form-control boxed" placeholder="Disabled input text"> </div>
                                         <div class="form-group">
                                             <label class="control-label">Leave Type</label>
-                                             <select class="form-control boxed">
-                                                <option>Option one</option>
-                                                <option>Option two</option>
-                                                <option>Option three</option>
-                                                <option>Option four</option>
-                                            </select> 
+                                             <input type="text" disabled="disabled" class="form-control boxed" placeholder="Disabled input text">
                                             
                                          </div>
                                          
                                         <div class="form-group">
                                             <label class="control-label">Start Date</label>
-                                            <input type="date" class="form-control boxed" placeholder="Placeholder text"> </div>
+                                            <input type="text" disabled="disabled" class="form-control boxed" placeholder="Disabled input text"> </div>
                                         <div class="form-group">
                                             <label class="control-label">End Date</label>
-                                            <input type="date" class="form-control boxed" placeholder="Disabled input text">
+                                            <input type="text" disabled="disabled" class="form-control boxed" placeholder="Disabled input text">
                                         </div>
                                        
                                         
@@ -232,22 +227,12 @@
                                     <form role="form">
                                          <div class="form-group">
                                             <label class="control-label">Employee</label>
-                                             <select class="form-control boxed">
-                                                <option>Option one</option>
-                                                <option>Option two</option>
-                                                <option>Option three</option>
-                                                <option>Option four</option>
-                                            </select> 
+                                             <input type="text" disabled="disabled" class="form-control boxed" placeholder="Disabled input text">
                                             
                                          </div>
                                           <div class="form-group">
                                             <label class="control-label">Department</label>
-                                             <select class="form-control boxed">
-                                                <option>Option one</option>
-                                                <option>Option two</option>
-                                                <option>Option three</option>
-                                                <option>Option four</option>
-                                            </select> 
+                                             <input type="text" disabled="disabled" class="form-control boxed" placeholder="Disabled input text">
                                             
                                          </div>
                                           <div class="form-group">
@@ -256,7 +241,7 @@
                                         </div>
                                         <div class="form-group">
                                             <label class="control-label">Comment By Manager</label>
-                                            <textarea rows="3" class="form-control boxed"></textarea>
+                                            <textarea rows="3" disabled="disabled" class="form-control boxed"></textarea>
                                         </div>
                                     </form>
                                 </div>

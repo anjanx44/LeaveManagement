@@ -42,16 +42,41 @@
         
         
 		<script type="text/javascript">
-			$(document).ready(function() {
-				console.log("sdjflksjdjflsdfdsfsdf");
-				alert("sdfsdf");
-				showPage(1);
-				
-			});
-			
-			
-			
-		</script>
+	$(document).ready(function() {
+		$.get({
+			url : 'numberOfemployee',
+			success : function(res) {
+
+				alert("anjan");
+
+				//console.log(res);
+				var numberOfEmployee = res.numberOfEmployee;
+				var mod = (numberOfEmployee % 10);
+
+				var length;
+
+				if (mod != 0) {
+					numberOfEmployee -= mod;
+					length = res.numberOfEmployee / 10;
+					length++;
+				} else {
+					length = res.numberOfEmployee / 10;
+				}
+				var output = "";
+				for (i = 1; i <= length; i++) {
+					output = '<a  onclick="showPage(' + i + ');">' + i + '</a>'
+					//console.log(output);
+					$('#link').append(output);
+				}
+
+			}
+		})
+		showPage(1);
+	});
+	
+	
+	
+</script>
         
         
         
@@ -233,6 +258,14 @@
                                     <div class="card-block">
                                         <div class="card-title-block">
                                             <h3 class="title"> Responsive simple </h3>
+                                        </div>
+                                        <div class="pagination" style="float:right;">
+                                                <a href="" class="btn btn-primary btn-sm">
+                                                    <i class="fa fa-angle-left"></i>
+                                                </a>
+                                                <a href="" class="btn btn-primary btn-sm">
+                                                    <i class="fa fa-angle-right"></i>
+                                                </a>
                                         </div>
                                         <section class="example">
                                             <div class="table-responsive">

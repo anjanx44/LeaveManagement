@@ -1,3 +1,6 @@
+<%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
 <!doctype html>
 <html class="no-js" lang="en">
     <head>
@@ -25,6 +28,44 @@
                 document.write('<link rel="stylesheet" id="theme-style" href="css/app.css">');
             }
         </script>
+        
+        <script type="text/javascript">
+	
+        $(function() {
+    		$('#saveLeave').click(
+    				
+    			function(e) {
+    				console.log(5 + 6);
+    				e.preventDefault();
+    				$('input').next().remove();
+    				$.post({
+    					
+    					url : '/',
+    					data : $('form[name=leaveForm]').serialize(),
+    					success : function(res) {
+    						console.log("start")
+    						if (res.validated) {
+    							$('#resultContainer pre code').text(
+    									JSON.stringify(res.employee));
+    							$('#resultContainer').show();
+    						} else {
+    							$.each(res.errorMessages, function(key, value) {
+    								$('input[name=' + key + ']').after(
+    										'<span class="error">' + value
+    												+ '</span>');
+    							});
+    						}
+    						console.log("end")
+    					}
+    				
+    				})
+    			});
+    	});
+
+        </script>
+        
+        
+        
     </head>
     <body>
         <div class="main-wrapper">
@@ -178,11 +219,12 @@
                     <div class="title-block">
                         <h1 class="title"> Leaves Summary </h1>
                         <p class="title-description"> 
-                        	<a><button class="btn btn-success"> Save</button> </a>
+                        	<a><button type="submit" id = "saveLeave" class="btn btn-success"> Save</button> </a>
                         	<a><button class="btn btn-secondary"> Discard</button> </a>
                         </p>
                     </div>
                    <section class="section">
+                   
                         <div class="row sameheight-container">
                         
                             <div class="col-md-6">
@@ -190,28 +232,30 @@
                                     <div class="title-block">
                                         <h3 class="title"> Boxed Inputs </h3>
                                     </div>
-                                    <form>
+                                    <form action="/" method="post" name="leaveForm" >
                                     	
                                         <div class="form-group">
                                             <label class="control-label">Description</label>
-                                            <input type="text" class="form-control boxed"> </div>
+                                            <input type="text" name="description" class="form-control boxed"> </div>
                                         <div class="form-group">
                                             <label class="control-label">Leave Type</label>
-                                             <select class="form-control boxed">
-                                                <option>Option one</option>
-                                                <option>Option two</option>
-                                                <option>Option three</option>
-                                                <option>Option four</option>
+                                             <select name="leaveType" class="form-control boxed">
+                                                
+											     <option value="Legal Leaves 2018">Legal Leaves 2018</option>
+											     <option value="Compensatory Days">Compensatory Days</option>
+											     <option value="Sick Leaves">Sick Leaves</option>
+											     <option value="Unpaid">Unpaid</option>
+					
                                             </select> 
                                             
                                          </div>
                                          
                                         <div class="form-group">
                                             <label class="control-label">Start Date</label>
-                                            <input type="date" class="form-control boxed" placeholder="Placeholder text"> </div>
+                                            <input name="startDate" type="date" class="form-control boxed" placeholder="Placeholder text"> </div>
                                         <div class="form-group">
                                             <label class="control-label">End Date</label>
-                                            <input type="date" class="form-control boxed" placeholder="Disabled input text">
+                                            <input name="endDate" type="date" class="form-control boxed" placeholder="Disabled input text">
                                         </div>
                                        
                                         
@@ -223,24 +267,18 @@
                                     <div class="title-block">
                                         <h3 class="title"> Boxed Inputs Validation </h3>
                                     </div>
-                                    <form role="form">
+                                    <form action="/" method="post" name="leaveForm" >
                                          <div class="form-group">
                                             <label class="control-label">Employee</label>
                                              <select class="form-control boxed">
-                                                <option>Option one</option>
-                                                <option>Option two</option>
-                                                <option>Option three</option>
-                                                <option>Option four</option>
+                                                <option value="Anjan Biswas">Anjan Biswas</option>
                                             </select> 
                                             
                                          </div>
                                           <div class="form-group">
                                             <label class="control-label">Department</label>
                                              <select class="form-control boxed">
-                                                <option>Option one</option>
-                                                <option>Option two</option>
-                                                <option>Option three</option>
-                                                <option>Option four</option>
+                                                <option value="Development">Development</option>
                                             </select> 
                                             
                                          </div>
@@ -250,7 +288,7 @@
                                         </div>
                                         <div class="form-group">
                                             <label class="control-label">Comment By Manager</label>
-                                            <textarea rows="3" class="form-control boxed"></textarea>
+                                            <textarea rows="3" name="managerComment" class="form-control boxed"></textarea>
                                         </div>
                                     </form>
                                 </div>
@@ -352,8 +390,8 @@
                 <div class="color-secondary"></div>
             </div>
         </div>
-        <script src="js/vendor.js"></script>
-        <script src="js/app.js"></script>
+        <!-- <script src="js/vendor.js"></script> -->
+        <!-- <script src="js/app.js"></script> -->
         
     </body>
 </html>

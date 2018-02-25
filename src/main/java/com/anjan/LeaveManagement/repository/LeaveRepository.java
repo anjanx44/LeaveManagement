@@ -7,7 +7,6 @@ import org.springframework.stereotype.Repository;
 
 import com.anjan.LeaveManagement.model.Leaves;
 
-
 @Repository
 public interface LeaveRepository extends PagingAndSortingRepository<Leaves, Integer> {
 	
