@@ -275,14 +275,14 @@
                                     <form action="saveLeave" method="post" name="leaveForm" >
                                          <div class="form-group">
                                             <label class="control-label">Employee</label>
-                                             <select class="form-control boxed">
+                                             <select name="empName" class="form-control boxed">
                                                 <option value="Anjan Biswas">Anjan Biswas</option>
                                             </select> 
                                             
                                          </div>
                                           <div class="form-group">
                                             <label class="control-label">Department</label>
-                                             <select class="form-control boxed">
+                                             <select name="empDept" class="form-control boxed">
                                                 <option value="Development">Development</option>
                                             </select> 
                                             
