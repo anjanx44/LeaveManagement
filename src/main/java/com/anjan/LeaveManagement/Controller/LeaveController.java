@@ -61,53 +61,27 @@ public class LeaveController {
 	
 	@GetMapping("/test")
 	public void leaveCreate(){
-		/*Leaves lv = new Leaves();
-		
-		lv.setDescription("I am anjan");
-		lv.setDuration(3);
-		lv.setEmpId(1);
-		
-		Date dd= new Date();
-		
-		lv.setEndDate(dd);
-		
-		lv.setId(1);
-		
-		lv.setLeaveType("hjhj");
-		
-		lv.setManagerComment("manager");
-		
-		lv.setStartDate(dd);
-		
-		leaveService.save(lv);*/
 		
 		
 		
 		
 	}
 	
-	@PostMapping(value = "/", produces = { MediaType.APPLICATION_JSON_VALUE })
+	@PostMapping(value = "/saveLeave", produces = { MediaType.APPLICATION_JSON_VALUE })
 	@ResponseBody
 	public void saveLeave(@ModelAttribute @Valid Leaves leave, BindingResult result) {
 		System.out.println("anjan=============================================");
 		System.out.println(leave.toString());
 		
-		
-		try {
-			List<Leavetypes> allLeaveType = (List<Leavetypes>) leaveTypeService.getAllLeavetype();
-			System.out.println(allLeaveType);
-		} catch (Exception e) {
-			System.out.println(e.getMessage());
-		}
+		leave.setDuration(1);
+		leave.setEmpId(1);
+
+		leaveService.save(leave);
 		
 		
 		
 		
 		
-		/*for (int i = 0; i < allLeaveType.size(); i++) {
-			Leavetypes iterable_element = allLeaveType.get(i);
-			System.out.println(iterable_element.getTypeName());
-		}*/
 	}
 	
 }

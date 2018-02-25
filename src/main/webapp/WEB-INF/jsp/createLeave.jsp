@@ -1,5 +1,6 @@
 <%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 
 <!doctype html>
 <html class="no-js" lang="en">
@@ -40,7 +41,7 @@
     				$('input').next().remove();
     				$.post({
     					
-    					url : '/',
+    					url : 'saveLeave',
     					data : $('form[name=leaveForm]').serialize(),
     					success : function(res) {
     						console.log("start")
@@ -232,7 +233,7 @@
                                     <div class="title-block">
                                         <h3 class="title"> Boxed Inputs </h3>
                                     </div>
-                                    <form action="/" method="post" name="leaveForm" >
+                                    <form action="saveLeave" method="post" name="leaveForm" >
                                     	
                                         <div class="form-group">
                                             <label class="control-label">Description</label>
@@ -252,7 +253,11 @@
                                          
                                         <div class="form-group">
                                             <label class="control-label">Start Date</label>
-                                            <input name="startDate" type="date" class="form-control boxed" placeholder="Placeholder text"> </div>
+                                            
+                                            	<input name="startDate" type="date" class="form-control boxed" placeholder="Placeholder text"> 
+                                   				
+                                            </div>
+                                        	
                                         <div class="form-group">
                                             <label class="control-label">End Date</label>
                                             <input name="endDate" type="date" class="form-control boxed" placeholder="Disabled input text">
@@ -267,7 +272,7 @@
                                     <div class="title-block">
                                         <h3 class="title"> Boxed Inputs Validation </h3>
                                     </div>
-                                    <form action="/" method="post" name="leaveForm" >
+                                    <form action="saveLeave" method="post" name="leaveForm" >
                                          <div class="form-group">
                                             <label class="control-label">Employee</label>
                                              <select class="form-control boxed">
