@@ -11,11 +11,17 @@
         <link rel="stylesheet" href="css/vendor.css">
         <!-- Theme initialization -->
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    
+        
+        
          <script type="text/javascript">
-	        function showPage(i) {
-	
-	    		$.get({
-	    			url : '/showLeave',
+         function showPage(i) {
+
+         		$.get({
+	    			url : 'show',
+	    			data : {
+	    				page : i
+	    			},
 	    			success : function(res) {
 	    				console.log(res);
 	    				$('#employeeList tbody').html('');
@@ -23,12 +29,14 @@
 	    				$.each(res, function(key, value) {
 	    					console.log(value.email)
 	    					list += '<tr>';
-	    					list += '<td>' + value.id + '</td>';
-	    					list += '<td>' + value.id + '</td>';
-	    					list += '<td>' + value.id + '</td>';
-	    					list += '<td>' + value.id + '</td>';
-	    					list += '<td><a  onclick="updateEntry( \''+value.id+'\' )">  Update  </a></td>';
-	    					list += '<td><a  onclick="DeleteEntry( \''+value.id+'\' )">  Delete  </a></td>';
+	    					list += '<td>' + value.empName + '</td>';
+	    					list += '<td>' + 'sadfsdf' + '</td>';
+	    					list += '<td>' + value.description + '</td>';
+	    					list += '<td>' + value.duration + '</td>';
+	    					list += '<td>' + value.startDate + '</td>';
+	    					list += '<td>' + value.endDate + '</td>';
+	    					list += '<td>' + value.endDate + '</td>';
+	    					list += '<td>' + value.endDate + '</td>';
 	    					list + '</tr>';
 	    				});
 	    	
@@ -36,48 +44,32 @@
 	    				$('#employeeList').append(list);
 	    			}
 	    		})
-	    	}
-	        
+         }
+
+
+
         </script>
         
-        
-		<script type="text/javascript">
-	$(document).ready(function() {
-		$.get({
-			url : 'numberOfemployee',
-			success : function(res) {
+        <script type="text/javascript">
 
-				alert("anjan");
+        	var cnt = 1;
+    	
+	        $(document).ready(function(){
+	        	showPage(cnt);
+	       	});
 
-				//console.log(res);
-				var numberOfEmployee = res.numberOfEmployee;
-				var mod = (numberOfEmployee % 10);
-
-				var length;
-
-				if (mod != 0) {
-					numberOfEmployee -= mod;
-					length = res.numberOfEmployee / 10;
-					length++;
-				} else {
-					length = res.numberOfEmployee / 10;
-				}
-				var output = "";
-				for (i = 1; i <= length; i++) {
-					output = '<a  onclick="showPage(' + i + ');">' + i + '</a>'
-					//console.log(output);
-					$('#link').append(output);
-				}
-
+			function ff(){
+				
+				cnt++;
+				showPage(cnt);
 			}
-		})
-		showPage(1);
-	});
-	
-	
-	
-</script>
-        
+
+			function bb(){
+				cnt--;
+				showPage(cnt);
+			}
+			
+        </script>
         
         
         <script>
@@ -260,10 +252,10 @@
                                             <h3 class="title"> Responsive simple </h3>
                                         </div>
                                         <div class="pagination" style="float:right;">
-                                                <a href="" class="btn btn-primary btn-sm">
+                                                <a href="#" onclick="ff(); return false;" class="btn btn-primary btn-sm">
                                                     <i class="fa fa-angle-left"></i>
                                                 </a>
-                                                <a href="" class="btn btn-primary btn-sm">
+                                                <a href="#" onclick="bb(); return false;" class="btn btn-primary btn-sm">
                                                     <i class="fa fa-angle-right"></i>
                                                 </a>
                                         </div>
@@ -399,8 +391,8 @@
                 <div class="color-secondary"></div>
             </div>
         </div>
-        <script src="js/vendor.js"></script>
-        <script src="js/app.js"></script>
+        <!-- <script src="js/vendor.js"></script>
+        <script src="js/app.js"></script> -->
         
     </body>
 </html>

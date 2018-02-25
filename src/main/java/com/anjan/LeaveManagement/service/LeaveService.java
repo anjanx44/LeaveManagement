@@ -13,7 +13,7 @@ import com.anjan.LeaveManagement.repository.LeaveRepository;
 
 @Service
 public class LeaveService {
-	private final static int PAGESIZE = 10;
+	private final static int PAGESIZE = 5;
 	@Autowired
 	LeaveRepository repository;
 	

@@ -44,6 +44,14 @@ public class LeaveController {
 		return new ModelAndView("ShowAllLeave");
 	}
 	
+	@GetMapping(value="/show", produces = { MediaType.APPLICATION_JSON_VALUE })
+	public List<Leaves> getAllLeave(@RequestParam Integer page) {
+		System.out.println("page=================="+page);
+		
+		return (List<Leaves>) leaveService.getPage(page);
+	}
+	
+	
 	@GetMapping("/createLeave")
 	public ModelAndView createLeave(Model model) {
 		return new ModelAndView("createLeave");
@@ -69,7 +77,7 @@ public class LeaveController {
 	
 	@PostMapping(value = "/saveLeave", produces = { MediaType.APPLICATION_JSON_VALUE })
 	@ResponseBody
-	public void saveLeave(@ModelAttribute @Valid Leaves leave, BindingResult result) {
+	public String saveLeave(@ModelAttribute @Valid Leaves leave, BindingResult result) {
 		System.out.println("anjan=============================================");
 		System.out.println(leave.toString());
 		
@@ -79,7 +87,7 @@ public class LeaveController {
 		leaveService.save(leave);
 		
 		
-		
+		return "";
 		
 		
 	}
